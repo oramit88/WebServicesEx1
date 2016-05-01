@@ -15,7 +15,9 @@ app.get("/",function(req,res){ //if thre is requens && methid "get" and the path
     gradesModule.talk('hiii');
     //res.status(200);
     res.set('Header-one', 'my talk function');
-    res.send(200,'received something..');
+    //res.send(200,'received something..');
+    ////
+    res.sendFile(__dirname + '/API/api.html');
  });
 
 app.get('/getAllStudents',function(req,res){
@@ -39,6 +41,16 @@ app.get('/getStudentsByYear/:year',function(req,res){
     var year = req.params.year;
     //console.log("test:"+year);
     var jsonMessage=gradesModule.getStudentsByYear(year);
+    //console.log("test2:"+jsonMessage);
+    //var str="hi"
+    res.send(jsonMessage);
+});
+
+app.get('/*',function(req,res){
+    var year = req.params.year;
+    //console.log("test:"+year);
+    var jsonMessage="<p>Error: Wrong path!</p><p>please use the API: https://students-grades.herokuapp.com</p>";
+
     //console.log("test2:"+jsonMessage);
     //var str="hi"
     res.send(jsonMessage);
