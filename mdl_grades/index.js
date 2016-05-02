@@ -1,66 +1,57 @@
-var gradesData = require('../data/gradesData.json');
+var gradesData = require('../data/gradesData.json'); //bring the data from Json file.
 
-exports.talk=function(msg){
-    console.log("my you said: "+msg);
-};
-
-
-exports.getAllStudents=function(){
+//returns the Json as is.
+exports.getAllStudents=function(){ 
     return gradesData;
 };
 
-
+//returns the Json with the student details by his id number. 
 exports.getStudGradeById=function(id){
     var returnMsg;
-    if(isNaN(parseInt(id))){
+    if(isNaN(parseInt(id))){ //if the given argument is illegal- characters. 
         returnMsg={"Error":"not a number"}
-
     }
     else if(id<0){
          returnMsg={"Error":"negative number"}
      }
     else{
-        console.log("getStudGradeById function. searchong id:"+id);
-        var arrSize = gradesData.students.length;
+        console.log("getStudGradeById function. searching id:"+id);
+        var arrSize = gradesData.students.length; //the amount of student at the json file.
         //console.log("size is:" +arrSize);
-        //return arrSize;
         for(var i = 0 ; i < arrSize;i++){
-            if(gradesData.students[i].studentId == id){
+            if(gradesData.students[i].studentId == id){ //searching the student by id.
                 returnMsg = gradesData.students[i];
                 break;
             }
         }
-        if(returnMsg==undefined){
-                console.log("yes");
+        if(returnMsg==undefined){  //didnt find.
                 returnMsg={"massage":"didnt find any result"}
         }
      
     }
-    console.log("test3:"+returnMsg);
+    //console.log("test3:"+returnMsg);
     return returnMsg;
 };
 
+//returns list of students (json) from a particular year. 
+//he argument "year" must be between 1 to 4. 
+//1- is first year students, 2 is second year students, et cetera... 
 exports.getStudentsByYear=function(year){
     var returnMsg;
     if(isNaN(parseInt(year))){
         returnMsg={"Error":"not a number"}
 
     }
-    else if(year<0){
-         returnMsg={"Error":"negative number"}
-     }
-    else if(year>4){
+    else if(year>4||year<1){
          returnMsg={"Error":"year must be between 1 to 4"}
      }
     else{
-
-        console.log("getStudentsByYear function. searchong year:"+year);
+        console.log("getStudentsByYear function. searching year:"+year);
         var arrSize = gradesData.students.length;
         returnMsg=[];
-
         for(var i = 0 ; i < arrSize;i++){
             if(gradesData.students[i].year == year){
-                returnMsg.push(gradesData.students[i]);
+                returnMsg.push(gradesData.students[i]); //adding the student to students array.
             }
         }
         if(returnMsg==undefined){
