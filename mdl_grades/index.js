@@ -12,15 +12,9 @@ mongoose.connect('mongodb://db_usr:db_pass@ds023932.mlab.com:23932/students_grad
            
 //     });
 
-
+var gradesData;
 
 //console.log("get all student function route");
-
-
-
-//returns the Json as is.
-exports.getAllStudents=function(){ 
-    var gradesData;
 mongoose.connection.once('open', function (){
                 studentModel.find({}, function(err, students) {
                 if(err){
@@ -33,6 +27,11 @@ mongoose.connection.once('open', function (){
                 }
              });
     });
+
+
+
+//returns the Json as is.
+exports.getAllStudents=function(){ 
 
    return gradesData;
 };
