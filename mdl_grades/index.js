@@ -1,6 +1,7 @@
 //var gradesData = require('../data/gradesData.json'); //bring the data from Json file.
 var studentModel=require('./student');
 var mongoose=require('mongoose');
+mongoose.connect('mongodb://db_usr:db_pass@ds023932.mlab.com:23932/students_grades');
 
 
 

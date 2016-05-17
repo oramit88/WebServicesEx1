@@ -3,8 +3,8 @@
 var gradesModule=require('./mdl_grades');
 var express=require ('express');
 var app=express();
-var mongoose=require('mongoose');
-mongoose.connect('mongodb://db_usr:db_pass@ds023932.mlab.com:23932/students_grades');
+//var mongoose=require('mongoose');
+
 
 
 // var conn=mongoose.connection;
