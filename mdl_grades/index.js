@@ -13,6 +13,7 @@ mongoose.connect('mongodb://db_usr:db_pass@ds023932.mlab.com:23932/students_grad
 //     });
 
 var gradesData;
+var gradesDataLength;
 
 //console.log("get all student function route");
 mongoose.connection.once('open', function (){
@@ -22,7 +23,9 @@ mongoose.connection.once('open', function (){
                 } 
                 else{
                     console.log(students);
+
                     gradesData=students;
+                    gradesDataLength=gradesData.length;
                     mongoose.disconnect();
                 }
              });
@@ -46,10 +49,9 @@ exports.getStudGradeById=function(id){
      }
     else{
         console.log("getStudGradeById function. searching id:"+id);
-        var arrSize = gradesData.length; //the amount of student at the json file.
         //console.log("size is:" +arrSize);
-        for(var i = 0 ; i < arrSize;i++){
-            if(gradesData.students[i].studentId == id){ //searching the student by id.
+        for(var i = 0 ; i < gradesDataLength;i++){
+            if(gradesData[i].studentId == id){ //searching the student by id.
                 returnMsg = gradesData.students[i];
                 break;
             }
