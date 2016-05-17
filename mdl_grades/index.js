@@ -1,8 +1,38 @@
-var gradesData = require('../data/gradesData.json'); //bring the data from Json file.
+//var gradesData = require('../data/gradesData.json'); //bring the data from Json file.
+var studentModel=require('./student');
+var mongoose=require('mongoose');
+
+
+
+// console.log("test");
+// mongoose.connection.once('open', function (){
+//                         console.log("yess");
+//                         mongoose.disconnect();
+           
+//     });
+
+var gradesData;
+
+//console.log("get all student function route");
+mongoose.connection.once('open', function (){
+                studentModel.find({}, function(err, students) {
+                if(err){
+                  throw err;  
+                } 
+                else{
+                    console.log(students);
+                    gradesData=students;
+                    mongoose.disconnect();
+                }
+             });
+    });
+
+
 
 //returns the Json as is.
 exports.getAllStudents=function(){ 
-    return gradesData;
+
+   return gradesData;
 };
 
 //returns the Json with the student details by his id number. 

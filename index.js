@@ -1,7 +1,37 @@
+
+
+var gradesModule=require('./mdl_grades');
 var express=require ('express');
 var app=express();
-var gradesModule=require('./mdl_grades');
+var mongoose=require('mongoose');
+mongoose.connect('mongodb://db_usr:db_pass@ds023932.mlab.com:23932/students_grades');
+
+
+// var conn=mongoose.connection;
+
+// conn.on('error', function (err){
+//     console.log('error issssss: ' + err);
+// });
+
+// conn.once('open',function(){
+//     console.log('yess');
+//     mongoose.disconnect();
+// });
+
 var port=process.env.PORT||3000;
+// var db=mongoose.connect('mongodb://db_usr:db_pass@ds023932.mlab.com:23932/students_grades');
+// var gradesModule=require('./mdl_grades');
+//var schema=mongoose.Schema;
+
+// var conn=mongoose.connection;
+
+// mongoose.model('studModel',student);
+
+     // mongoose.connection.once('open',function (){
+     //     console.log('connected2'); 
+     //     mongoose.disconnect();
+     // });
+
 
 app.get("/",function(req,res){ //the regular route - send beck the html API document.
     res.set('Header-one', 'my talk function');
