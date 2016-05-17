@@ -14,13 +14,7 @@ var mongoose=require('mongoose');
 var gradesData;
 
 //console.log("get all student function route");
-
-
-
-//returns the Json as is.
-exports.getAllStudents=function(){ 
-
-    mongoose.connection.once('open', function (){
+mongoose.connection.once('open', function (){
                 studentModel.find({}, function(err, students) {
                 if(err){
                   throw err;  
@@ -33,6 +27,10 @@ exports.getAllStudents=function(){
              });
     });
 
+
+
+//returns the Json as is.
+exports.getAllStudents=function(){ 
 
    return gradesData;
 };
