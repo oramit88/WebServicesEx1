@@ -1,0 +1,153 @@
+{
+    "students": [
+    {
+        "name": "Bill Gates",
+        "studentId":101020938,
+        "year":4,
+        "courses": [{
+            "courseName": "final project",
+            "grade": 95
+        }, {
+            "courseName": "artificial intelligence",
+            "grade": 97
+        }, {
+            "courseName": "advanced graphics",
+            "grade": 77
+        }]
+
+    },{
+        "name": "Or Amit",
+        "studentId":301427647,
+        "year":3,
+        "courses": [{
+            "courseName": "web services",
+            "grade": 90
+        }, {
+            "courseName": "algorithms",
+            "grade": 83
+        }, {
+            "courseName": "data structures",
+            "grade": 92
+        }]
+
+    }, {
+        "name": "Kobi Brient",
+        "studentId":328736361,
+        "year":3,
+        "courses": [{
+            "courseName": "web services",
+            "grade": 59
+        }, {
+            "courseName": "algorithms",
+            "grade": 70
+        }, {
+            "courseName": "data structures",
+            "grade": 80
+        }]
+    }, {
+       "name": "Michael Gurbachov",
+        "studentId":873057391,
+        "year":3,
+        "courses": [{
+            "courseName": "web services",
+            "grade": 99
+        }, {
+            "courseName": "algorithms",
+            "grade": 95
+        }, {
+            "courseName": "data structures",
+            "grade": 79
+        }]
+    },{
+        "name": "Yaki Cohen",
+        "studentId":387609731,
+        "year":2,
+        "courses": [{
+            "courseName": "java",
+            "grade": 78
+        }, {
+            "courseName": "c++",
+            "grade": 60
+        }, {
+            "courseName": "technical english",
+            "grade": 72
+        }]
+
+    },{
+        "name": "Dina Berenbaum",
+        "studentId":832876391,
+        "year":2,
+        "courses": [{
+            "courseName": "java",
+            "grade": 83
+        }, {
+            "courseName": "c++",
+            "grade": 89
+        }, {
+            "courseName": "technical english",
+            "grade": 99
+        }]
+
+    },{
+        "name": "Yossi Alus",
+        "studentId":285364738,
+        "year":2,
+        "courses": [{
+            "courseName": "java",
+            "grade": 90
+        }, {
+            "courseName": "c++",
+            "grade": 80
+        }, {
+            "courseName": "technical english",
+            "grade": 72
+        }]
+
+    },{
+        "name": "Inbal Dahan",
+        "studentId":587253628,
+        "year":1,
+        "courses": [{
+            "courseName": "linear algebra",
+            "grade": 68
+        }, {
+            "courseName": "computer science Introduction",
+            "grade": 78
+        }, {
+            "courseName": "physics",
+            "grade": 76
+        }]
+
+    },{
+        "name": "Sami Saviv",
+        "studentId":265382962,
+        "year":1,
+        "courses": [{
+            "courseName": "linear algebra",
+            "grade": 94
+        }, {
+            "courseName": "computer science Introduction",
+            "grade": 76
+        }, {
+            "courseName": "physics",
+            "grade": 66
+        }]
+
+    },
+    {
+        "name": "Mirit Levi",
+        "studentId":127630098,
+        "year":1,
+        "courses": [{
+            "courseName": "linear algebra",
+            "grade": 68
+        }, {
+            "courseName": "computer science Introduction",
+            "grade": 97
+        }, {
+            "courseName": "physics",
+            "grade": 84
+        }]
+
+    }]  
+}
