@@ -1,29 +1,21 @@
-//var gradesData = require('../data/gradesData.json'); //bring the data from Json file.
+
 var studentModel=require('./student');
 var mongoose=require('mongoose');
+
+//connecting to the database of the students
 mongoose.connect('mongodb://db_usr:db_pass@ds023932.mlab.com:23932/students_grades');
-
-
-
-// console.log("test");
-// mongoose.connection.once('open', function (){
-//                         console.log("yess");
-//                         mongoose.disconnect();
-           
-//     });
 
 var gradesData;
 var gradesDataLength;
 
-//console.log("get all student function route");
+//bring the data from the db.
 mongoose.connection.once('open', function (){
                 studentModel.find({}, function(err, students) {
-                if(err){
+                if(err){ //if error occured
                   throw err;  
                 } 
                 else{
-                    console.log(students);
-
+                    //console.log(students); //for testing
                     gradesData=students;
                     gradesDataLength=gradesData.length;
                     mongoose.disconnect();
@@ -32,8 +24,7 @@ mongoose.connection.once('open', function (){
     });
 
 
-
-//returns the Json as is.
+//returns the the data from mongo DB.
 exports.getAllStudents=function(){ 
    return gradesData;
 };
@@ -49,19 +40,17 @@ exports.getStudGradeById=function(id){
      }
     else{
         console.log("getStudGradeById function. searching id:"+id);
-        //console.log("size is:" +arrSize);
         for(var i = 0 ; i < gradesDataLength;i++){
+            console.log("tesstt"+gradesData[i].studentId);
             if(gradesData[i].studentId == id){ //searching the student by id.
-                returnMsg = gradesData.students[i];
+                returnMsg = gradesData[i];
                 break;
             }
         }
         if(returnMsg==undefined){  //didnt find.
                 returnMsg={"massage":"didnt find any result"}
         }
-     
     }
-    //console.log("test3:"+returnMsg);
     return returnMsg;
 };
 
@@ -79,11 +68,10 @@ exports.getStudentsByYear=function(year){
      }
     else{
         console.log("getStudentsByYear function. searching year:"+year);
-        var arrSize = gradesData.students.length;
         returnMsg=[];
-        for(var i = 0 ; i < arrSize;i++){
-            if(gradesData.students[i].year == year){
-                returnMsg.push(gradesData.students[i]); //adding the student to students array.
+        for(var i = 0 ; i < gradesDataLength;i++){
+            if(gradesData[i].year == year){
+                returnMsg.push(gradesData[i]); //adding the student to students array.
             }
         }
         if(returnMsg==undefined){
